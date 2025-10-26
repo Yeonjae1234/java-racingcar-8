@@ -9,6 +9,10 @@ public class Car {
         score = 0;
     }
 
+    public void plusScore(){
+        score++;
+    }
+
     @Override
     public String toString(){
         return name + ":" + score;

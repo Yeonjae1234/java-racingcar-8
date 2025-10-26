@@ -11,6 +11,25 @@ public class Game {
         currentRound = 0;
     }
 
+    public boolean checkRemainRound(){
+        currentRound++;
+        if (currentRound > roundCount) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean hasNextCar(int currentCarIndex){
+        if(currentCarIndex<carList.getCarNumber()){
+            return true;
+        }
+        return false;
+    }
+
+    public void moveForward(int currentCarIndex){
+        carList.moveForward(currentCarIndex);
+    }
+
     @Override
     public String toString(){
         return carList.toString() + "," + roundCount + "," + currentRound;

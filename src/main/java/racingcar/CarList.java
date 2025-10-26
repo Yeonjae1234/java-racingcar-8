@@ -14,6 +14,14 @@ public class CarList {
         carNumber = carList.length;
     }
 
+    public int getCarNumber(){
+        return carNumber;
+    }
+
+    public void moveForward(int currentCarIndex) {
+        carArrayList.get(currentCarIndex).plusScore();
+    }
+
     @Override
     public String toString(){
         return carArrayList.toString();

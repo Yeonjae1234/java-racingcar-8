@@ -55,6 +55,30 @@ class ApplicationTest extends NsTest {
         });
     }
 
+    @Test
+    void proceedRoundTrue(){
+        assertSimpleTest(() -> {
+            String[] nameList = {"pobi", "woni"};
+            CarList carList = new CarList(nameList);
+            Game game = new Game(carList, 1);
+            GameService gameService = new GameService(game);
+            gameService.proceedRound(true);
+            assertThat(game.toString()).isEqualTo("[pobi:1, woni:1],1,0");
+        });
+    }
+
+    @Test
+    void proceedRoundFalse(){
+        assertSimpleTest(() -> {
+            String[] nameList = {"pobi", "woni"};
+            CarList carList = new CarList(nameList);
+            Game game = new Game(carList, 1);
+            GameService gameService = new GameService(game);
+            gameService.proceedRound(false);
+            assertThat(game.toString()).isEqualTo("[pobi:0, woni:0],1,0");
+        });
+    }
+
 //
 //
 //    @Test
