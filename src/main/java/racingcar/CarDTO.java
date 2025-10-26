@@ -1,4 +1,4 @@
 package racingcar;
 
-public record CarDTO() {
+public record CarDTO(String name, int score) {
 }

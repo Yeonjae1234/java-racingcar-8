@@ -13,6 +13,10 @@ public class Car {
         score++;
     }
 
+    public CarDTO createCarDTO(){
+        return new CarDTO(this.name, this.score);
+    }
+
     @Override
     public String toString(){
         return name + ":" + score;

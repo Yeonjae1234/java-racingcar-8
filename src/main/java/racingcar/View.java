@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.ArrayList;
+
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class View {
@@ -11,5 +13,22 @@ public class View {
     public String getRoundCount() {
         System.out.println("시도할 횟수는 몇 회인가요?");
         return readLine();
+    }
+
+    public void printRaceStatus(ArrayList<CarDTO> carListDTO){
+        for (CarDTO carDTO : carListDTO) {
+            System.out.print(formatOutput(carDTO));
+        }
+        System.out.print("\n");
+    }
+
+    public String formatOutput(CarDTO carDTO) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(carDTO.name()).append(" : ");
+        for (int i = 0; i < carDTO.score(); i++) {
+            sb.append("-");
+        }
+        sb.append("\n");
+        return String.valueOf(sb);
     }
 }

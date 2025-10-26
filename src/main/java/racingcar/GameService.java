@@ -4,14 +4,17 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class GameService {
     Game game;
+    OutputPort outputPort;
 
-    public GameService(Game game) {
+    public GameService(Game game,OutputPort outputPort) {
         this.game = game;
+        this.outputPort = outputPort;
     }
 
     public void runGame(){
         while(game.checkRemainRound()){
             proceedRound(true);
+            outputPort.printRaceStatus(game.printCurrentStatus());
         }
     }
 

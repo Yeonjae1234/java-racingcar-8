@@ -22,6 +22,14 @@ public class CarList {
         carArrayList.get(currentCarIndex).plusScore();
     }
 
+    public ArrayList<CarDTO> printCurrentStatus(){
+        ArrayList<CarDTO> carListDTO = new ArrayList<>();
+        for (Car car : carArrayList) {
+            carListDTO.add(car.createCarDTO());
+        }
+        return carListDTO;
+    }
+
     @Override
     public String toString(){
         return carArrayList.toString();

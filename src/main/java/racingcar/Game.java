@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.ArrayList;
+
 public class Game {
     private CarList carList;
     private int roundCount;
@@ -28,6 +30,10 @@ public class Game {
 
     public void moveForward(int currentCarIndex){
         carList.moveForward(currentCarIndex);
+    }
+
+    public ArrayList<CarDTO> printCurrentStatus(){
+        return carList.printCurrentStatus();
     }
 
     @Override
