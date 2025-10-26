@@ -36,6 +36,15 @@ class ApplicationTest extends NsTest {
         });
     }
 
+    @Test
+    void makeCarList(){
+        assertSimpleTest(() -> {
+            String[] nameList = {"pobi", "woni", "jun"};
+            CarList carList = new CarList(nameList);
+            assertThat(carList.toString()).isEqualTo("[pobi:0, woni:0, jun:0]");
+        });
+    }
+
 //
 //
 //    @Test
