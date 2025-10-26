@@ -15,6 +15,10 @@ public class View {
         return readLine();
     }
 
+    public void printStatusHeader(){
+        System.out.println("\n실행 결과");
+    }
+
     public void printRaceStatus(ArrayList<CarDTO> carListDTO){
         for (CarDTO carDTO : carListDTO) {
             System.out.print(formatOutput(carDTO));

@@ -23,7 +23,7 @@ public class GameService {
     public void proceedRound(boolean movingResult){
         int currentCarIndex = 0;
         while(game.hasNextCar(currentCarIndex)){
-            // movingResult = decideMoving();
+             movingResult = decideMoving();
             if (!movingResult) return;
             game.moveForward(currentCarIndex++);
         }
