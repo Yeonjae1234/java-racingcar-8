@@ -8,4 +8,12 @@ public class Validator {
             throw new IllegalArgumentException();
         }
     }
+
+    public int validateRoundCount(String userInput) {
+        try {
+            return Integer.parseInt(userInput);
+        } catch (Exception e) {
+            throw new IllegalArgumentException();
+        }
+    }
 }

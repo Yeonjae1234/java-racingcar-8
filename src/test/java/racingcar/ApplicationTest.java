@@ -26,6 +26,16 @@ class ApplicationTest extends NsTest {
         });
     }
 
+    @Test
+    void getRoundCount(){
+        assertSimpleTest(() -> {
+            String TestInput = "5\n";
+            System.setIn(new ByteArrayInputStream(TestInput.getBytes()));
+            String test = view.getRoundCount();
+            assertThat(validator.validateRoundCount(test)).isEqualTo(5);
+        });
+    }
+
 //
 //
 //    @Test
