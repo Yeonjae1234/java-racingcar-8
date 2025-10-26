@@ -10,17 +10,16 @@ public class GameService {
     }
 
     public void runGame(){
-        if(game.checkRemainRound()){
-
+        while(game.checkRemainRound()){
+            proceedRound(true);
         }
     }
 
     public void proceedRound(boolean movingResult){
         int currentCarIndex = 0;
         while(game.hasNextCar(currentCarIndex)){
-            if (!movingResult) {
-                return;
-            }
+            // movingResult = decideMoving();
+            if (!movingResult) return;
             game.moveForward(currentCarIndex++);
         }
     }
