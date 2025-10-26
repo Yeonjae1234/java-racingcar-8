@@ -12,5 +12,7 @@ public class Controller {
     public void run(){
         String[] carNameList = validator.validateCarName(view.getCarName());
         CarList carList = new CarList(carNameList);
+        int roundCount = validator.validateRoundCount(view.getRoundCount());
+        Game game = new Game(carList, roundCount);
     }
 }
