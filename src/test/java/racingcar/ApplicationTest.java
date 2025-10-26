@@ -126,7 +126,25 @@ class ApplicationTest extends NsTest {
                             new CarDTO("pobi", 2),
                             new CarDTO("woni", 0),
                             new CarDTO("jun", 2)
-                    )))).containsExactly(new String[]{"pobi", "jun"});
+                    )))).containsExactly("pobi", "jun");
+        });
+    }
+
+    @Test
+    void printFinalWinnerMulti(){
+        assertSimpleTest(() -> {
+            ArrayList<String> winnerNameList = new ArrayList<>(List.of("pobi", "jun"));
+            view.printFinalResult(winnerNameList);
+            assertThat(output()).isEqualTo("최종 우승자 : pobi, jun");
+        });
+    }
+
+    @Test
+    void printFinalWinnerOnly(){
+        assertSimpleTest(() -> {
+            ArrayList<String> winnerNameList = new ArrayList<>(List.of("pobi"));
+            view.printFinalResult(winnerNameList);
+            assertThat(output()).isEqualTo("최종 우승자 : pobi");
         });
     }
 

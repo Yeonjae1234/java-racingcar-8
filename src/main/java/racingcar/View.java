@@ -31,4 +31,11 @@ public class View {
         sb.append("\n");
         return String.valueOf(sb);
     }
+
+
+    public void printFinalResult(ArrayList<String> winnerNameList) {
+        String result = "최종 우승자 : "+String.join(", ",winnerNameList);
+        System.out.println(result);
+
+    }
 }
