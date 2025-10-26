@@ -11,6 +11,7 @@ public class CarList {
         for (String string : carList) {
             carArrayList.add(new Car(string));
         }
+        carNumber = carList.length;
     }
 
     @Override
