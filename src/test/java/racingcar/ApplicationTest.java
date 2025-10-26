@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -108,6 +109,24 @@ class ApplicationTest extends NsTest {
                             tuple("pobi",2),
                             tuple("woni",2)
                     );
+        });
+    }
+
+    @Test
+    void findWinner(){
+        assertSimpleTest(() -> {
+            String[] nameList = {"pobi", "woni", "jun"};
+            CarList carList = new CarList(nameList);
+            Game game = new Game(carList, 3);
+            GameService gameService = new GameService(game,outputPort);
+
+
+            assertThat(game.findWinner(new ArrayList<CarDTO>(
+                    List.of(
+                            new CarDTO("pobi", 2),
+                            new CarDTO("woni", 0),
+                            new CarDTO("jun", 2)
+                    )))).containsExactly(new String[]{"pobi", "jun"});
         });
     }
 

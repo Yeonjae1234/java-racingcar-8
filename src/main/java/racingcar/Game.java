@@ -36,6 +36,29 @@ public class Game {
         return carList.printCurrentStatus();
     }
 
+    public ArrayList<String> findWinner(ArrayList<CarDTO> carDTOS){
+        int maxScore = findMaxScore(carDTOS);
+        ArrayList<String> winnerNameList = new ArrayList<>();
+        for (CarDTO car : carDTOS) {
+           addWinnerName(car,maxScore,winnerNameList);
+        }
+        return winnerNameList;
+    }
+
+    public int findMaxScore(ArrayList<CarDTO> carDTOS){
+        int maxScore = 0;
+        for (CarDTO car : carDTOS) {
+            maxScore = Math.max(maxScore, car.score());
+        }
+        return maxScore;
+    }
+
+    public void addWinnerName(CarDTO car, int maxScore, ArrayList<String> winnerNameList) {
+        if (car.score() == maxScore) {
+            winnerNameList.add(car.name());
+        }
+    }
+
     @Override
     public String toString(){
         return carList.toString() + "," + roundCount + "," + currentRound;

@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.ArrayList;
+
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class GameService {
@@ -25,6 +27,10 @@ public class GameService {
             if (!movingResult) return;
             game.moveForward(currentCarIndex++);
         }
+    }
+
+    public ArrayList<String> findWinnerList(ArrayList<CarDTO> carDTOS){
+        return game.findWinner(carDTOS);
     }
 
     public boolean decideMoving(){
