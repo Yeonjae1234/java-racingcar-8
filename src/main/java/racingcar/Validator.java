@@ -23,7 +23,9 @@ public class Validator {
 
     public int validateRoundCount(String userInput) {
         try {
-            return Integer.parseInt(userInput);
+            int roundCount = Integer.parseInt(userInput);
+            if(roundCount<0) throw new IllegalArgumentException();
+            return roundCount;
         } catch (Exception e) {
             throw new IllegalArgumentException();
         }
